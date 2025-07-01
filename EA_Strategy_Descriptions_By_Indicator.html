@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strategy EA Descriptions</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; background: #f9f9f9; padding: 20px; }
+        h2 { background: #005f73; color: white; padding: 10px; border-radius: 5px; }
+        h3 { color: #0a9396; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #94d2bd; }
+        .section { background: #e9ecef; padding: 10px; border-radius: 5px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+<h1>EA Strategy Descriptions (Split by Indicator)</h1>
+<p>This document outlines four separate strategy configurations for an Expert Advisor using EMA, ADX, MACD, and AO indicators.</p>
+<h2>EMA Strategy EA</h2><div class='section'><table><tr><th>Timeframe</th><th>Setting</th><th>Details</th></tr><tr><td>HTF</td><td>Timeframe_HTF</td><td>MN</td></tr><tr><td>HTF</td><td>EMA_HTF</td><td>Period: 9, Method: Exponential</td></tr><tr><td>ITF</td><td>Timeframe_ITF</td><td>W1</td></tr><tr><td>ITF</td><td>EMA_ITF</td><td>Period: 9, Method: Exponential</td></tr><tr><td>ETF</td><td>Timeframe_ETF</td><td>D1</td></tr><tr><td>ETF</td><td>EMA_ETF</td><td>Period: 9, Method: Exponential</td></tr><tr><td>Buy Condition</td><td></td><td>Candle closes above EMA on all enabled timeframes</td></tr><tr><td>Sell Condition</td><td></td><td>Candle closes below EMA on all enabled timeframes</td></tr></table></div><h2>ADX Strategy EA</h2><div class='section'><table><tr><th>Timeframe</th><th>Setting</th><th>Details</th></tr><tr><td>HTF</td><td>Timeframe_HTF</td><td>MN</td></tr><tr><td>HTF</td><td>ADX_HTF</td><td>Period: 14, Level: 20</td></tr><tr><td>ITF</td><td>Timeframe_ITF</td><td>W1</td></tr><tr><td>ITF</td><td>ADX_ITF</td><td>Period: 14, Level: 20</td></tr><tr><td>ETF</td><td>Timeframe_ETF</td><td>D1</td></tr><tr><td>ETF</td><td>ADX_ETF</td><td>Period: 14, Level: 20</td></tr><tr><td>Buy Condition</td><td></td><td>ADX > level AND +DI > -DI on all enabled timeframes</td></tr><tr><td>Sell Condition</td><td></td><td>ADX > level AND -DI > +DI on all enabled timeframes</td></tr></table></div><h2>MACD Strategy EA</h2><div class='section'><table><tr><th>Timeframe</th><th>Setting</th><th>Details</th></tr><tr><td>HTF</td><td>Timeframe_HTF</td><td>MN</td></tr><tr><td>HTF</td><td>MACD_HTF</td><td>Fast EMA: 12, Slow EMA: 26, Signal: 9</td></tr><tr><td>ITF</td><td>Timeframe_ITF</td><td>W1</td></tr><tr><td>ITF</td><td>MACD_ITF</td><td>Fast EMA: 12, Slow EMA: 26, Signal: 9</td></tr><tr><td>ETF</td><td>Timeframe_ETF</td><td>D1</td></tr><tr><td>ETF</td><td>MACD_ETF</td><td>Fast EMA: 12, Slow EMA: 26, Signal: 9</td></tr><tr><td>Buy Condition</td><td></td><td>MACD Histogram is above or crosses up the zero line</td></tr><tr><td>Sell Condition</td><td></td><td>MACD Histogram is below or crosses down the zero line</td></tr></table></div><h2>AO Strategy EA</h2><div class='section'><table><tr><th>Timeframe</th><th>Setting</th><th>Details</th></tr><tr><td>HTF</td><td>Timeframe_HTF</td><td>MN</td></tr><tr><td>HTF</td><td>AO_HTF</td><td>Green = Up, Purple = Down</td></tr><tr><td>ITF</td><td>Timeframe_ITF</td><td>W1</td></tr><tr><td>ITF</td><td>AO_ITF</td><td>Green = Up, Purple = Down</td></tr><tr><td>ETF</td><td>Timeframe_ETF</td><td>D1</td></tr><tr><td>ETF</td><td>AO_ETF</td><td>Green = Up, Purple = Down</td></tr><tr><td>Buy Condition</td><td></td><td>AO bar is green on all enabled timeframes</td></tr><tr><td>Sell Condition</td><td></td><td>AO bar is purple on all enabled timeframes</td></tr></table></div>
+</body>
+</html>
