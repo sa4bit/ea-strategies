@@ -47,6 +47,34 @@
   </style>
 </head>
 <body>
+
+<!-- Description starts here -->
+  <h1>EMA Strategy EA</h1>
+
+<div class="section">
+  <h2>📘 Strategy Description</h2>
+  <p>This EA uses the EMA indicator across 3 selectable timeframes (HTF, ITF, ETF) to determine trade direction. The EMA values are configured per timeframe, and a trade is opened only when the price aligns across the selected EMA filters.</p>
+
+  <div class="highlight">
+    <p><strong>Entry Timeframe (Dropdown):</strong> HTF / ITF / ETF</p>
+    <p><strong>Exit Timeframe (Dropdown):</strong> HTF / ITF / ETF</p>
+  </div>
+
+  <h3>✅ Entry Conditions:</h3>
+  <ul>
+    <li><strong>Buy:</strong> Price closes above EMA on selected Entry Timeframe</li>
+    <li><strong>Sell:</strong> Price closes below EMA on selected Entry Timeframe</li>
+  </ul>
+
+  <h3>✅ Optional Filter:</h3>
+  <ul>
+    <li><strong>ADX Filter:</strong> If enabled, requires ADX > 25 for trend strength confirmation on the Entry Timeframe</li>
+  </ul>
+</div>
+
+<div class="section">
+<!-- Description ends here -->
+  
   <h1>EMA Strategy EA</h1>
 
   <section>
