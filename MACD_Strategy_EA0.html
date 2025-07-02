@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>EMA Strategy EA</title>
+  <title>MACD Strategy EA</title>
   <style>
     body {
       font-family: Arial;
@@ -94,29 +94,20 @@
 <!-- Description starts here -->
   <div class="styleB">
 
-  <h1>EMA Strategy EA</h1>
+  <h1>MACD Strategy EA</h1>
 
   <div class="section">
     <h2>📘 Strategy Description</h2>
-    <p>This EA uses the EMA indicator across 3 selectable timeframes (HTF, ITF, ETF) to determine trade direction. The EMA values are configured per timeframe, and a trade is opened only when the price aligns across the selected EMA filters and ADX filters. 
-
-   
-    You can independently enable any timeframe as a filter. These timeframes act as directional 
-    validators. </p>
-
     <p>
-      For example, if EMA is enabled on H4 and H1, the price must be above EMA9 on both for 
-    a Buy signal to be valid.
-  
-  
-    The actual trade entry is triggered based on the selected Entry Timeframe (e.g., M15), 
-    and the Exit Timeframe determines when a trade is closed.
+     This EA uses the MACD Histogram across 3 selectable timeframes — HTF, ITF, and ETF — to determine market momentum and signal direction. </p>
+<p>
+You can configure MACD values for each timeframe independently. A trade is triggered only when the MACD Histogram conditions align across the selected timeframes. 
   </p>
     
     <div class="highlight">
       <h3>✅ Entry and Exit Behavior:</h3>
-      <p><strong>Entry Timeframe:</strong> HTF / ITF / ETF (Selectable)</p>
-      <p><strong>Exit Timeframe:</strong> HTF / ITF / ETF (Selectable)</p>
+      <p><strong>Entry Timeframe:</strong> Choose HTF / ITF / ETF (Selectable)</p>
+      <p><strong>Exit Timeframe:</strong> Choose HTF / ITF / ETF (Selectable)</p>
     </div>
 
     <h3>✅ Entry Conditions:</h3>
@@ -130,7 +121,7 @@
 
     <h3>✅ Optional Filter:</h3>
     <ul>
-      <li><strong>ADX Filter:</strong> You may enable ADX for trend strength confirmation on any timeframe. If enabled, the EA verifies:
+      <li><strong>ADX Filter:</strong> You may enable ADX to confirm trending conditions and avoid sideways markets, applied on any selected timeframe. If enabled, the EA verifies:
   </p>
   <ul>
     <li><strong>ADX value &gt; 25</strong>, and</li>
@@ -146,6 +137,17 @@
     If a trade is manually closed, the EA will not immediately re-open the trade under the same signal. 
     It will wait for a new valid signal to avoid noise and false repetition.
   </p>
+
+ <!-- Multi-Timeframe Logic --> 
+  <h3>  🔍 Multi-Timeframe Logic: </h3>  
+<p> HTF, ITF, and ETF act as optional filters to confirm trend alignment.
+Entry and Exit Timeframe selections determine where the actual trade signal and closure are evaluated. </p>
+
+<p>
+A trade enters when the Entry Timeframe condition is satisfied (e.g., MACD above/below zero),
+and exits when the Exit Timeframe condition reverses — provided all enabled filters remain aligned. </p>
+ <!-- Multi-Timeframe Logic -->
+      
 </li>
     </ul>
   </div>
