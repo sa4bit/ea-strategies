@@ -118,9 +118,12 @@
 
     <h3>✅ Entry Conditions:</h3>
     <ul>
-      <li><strong>Buy:</strong> Price closes above EMA on selected Entry Timeframe</li>
-      <li><strong>Sell:</strong> Price closes below EMA on selected Entry Timeframe</li>
+      <li><strong>Buy:</strong> Price closes above EMA on selected Entry Timeframe and (if selected) price is already above EMA on H1 and H4. The trade closes when price closes below EMA on selected Exit Timeframe (e.g. M15).</li>
+      <li><strong>Sell:</strong> Price closes below EMA on selected Entry Timeframe and (if selected) price is already below EMA on H1 and H4. The trade closes when price closes above EMA on selected Exit Timeframe (e.g. M15).</li>
     </ul>
+
+    <p>
+      If Exit Timeframe is set to H4, the trade will not close on M15 signal, but instead wait for H4 condition to break.</p>
 
     <h3>✅ Optional Filter:</h3>
     <ul>
