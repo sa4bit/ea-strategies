@@ -91,64 +91,6 @@
 </head>
 <body>
 
-<!-- EMA Description -->
-  <div class="section">
-  <h2>📘 EMA Strategy Description</h2>
-  <p>
-    This strategy uses the <strong>EMA (Exponential Moving Average)</strong> across up to 
-    <strong>three configurable timeframes</strong> (HTF, ITF, ETF) to identify directional bias 
-    and manage trades with precision.
-  </p>
-  <p>
-    You can <strong>independently enable</strong> any timeframe as a filter. These timeframes act as directional 
-    validators. For example, if EMA is enabled on <strong>H4 and H1</strong>, the price must be above EMA9 on both for 
-    a <strong>Buy</strong> signal to be valid.
-  </p>
-  <p>
-    The actual <strong>trade entry</strong> is triggered based on the selected <strong>Entry Timeframe</strong> (e.g., M15), 
-    and the <strong>Exit Timeframe</strong> determines when a trade is closed.
-  </p>
-
-  <div class="highlight">
-    <h3>✅ Example Behavior:</h3>
-    <ul>
-      <li>HTF = H4, ITF = H1, ETF = M15</li>
-      <li>Entry Timeframe = <strong>M15</strong></li>
-      <li>Exit Timeframe = <strong>M15</strong></li>
-    </ul>
-    <p>
-      ➤ A <strong>Buy trade opens</strong> when price closes <strong>above EMA9</strong> on M15, 
-      <strong>only if</strong> price is already above EMA9 on H1 and H4.<br>
-      ➤ The trade <strong>closes</strong> when price closes <strong>below EMA9</strong> on M15.
-    </p>
-    <p>
-      If Exit Timeframe is set to <strong>H4</strong>, the trade will not close on M15 signal 
-      but instead wait for H4 condition to break.
-    </p>
-  </div>
-
-  <h3>📈 ADX Trend Strength Filter (Optional)</h3>
-  <p>
-    You may enable <strong>ADX</strong> on any timeframe. If enabled, the EA verifies:
-  </p>
-  <ul>
-    <li><strong>ADX value &gt; 25</strong>, and</li>
-    <li><strong>+DI &gt; -DI</strong> (for Buy) or <strong>-DI &gt; +DI</strong> (for Sell)</li>
-  </ul>
-  <p>
-    Just like EMA, the ADX filter strengthens directional confirmation by filtering out weak or sideways markets. 
-    If ADX is enabled on HTF (e.g., H4), it works as a trend-strength filter on that timeframe.
-  </p>
-
-  <h3>🔁 Manual Trade Handling</h3>
-  <p>
-    If a trade is <strong>manually closed</strong>, the EA will <strong>not immediately re-open</strong> the trade under the same signal. 
-    It will wait for a <strong>new valid signal</strong> to avoid noise and false repetition.
-  </p>
-</div>
-
-<!-- EMA Description Ended -->
-  
 <!-- Description starts here -->
   <div class="styleB">
 
@@ -156,11 +98,22 @@
 
   <div class="section">
     <h2>📘 Strategy Description</h2>
-    <p>This EA uses the EMA indicator across 3 selectable timeframes (HTF, ITF, ETF) to determine trade direction. The EMA values are configured per timeframe, and a trade is opened only when the price aligns across the selected EMA filters.</p>
+    <p>This EA uses the EMA indicator across 3 selectable timeframes (HTF, ITF, ETF) to determine trade direction. The EMA values are configured per timeframe, and a trade is opened only when the price aligns across the selected EMA filters and ADX filters.</p>
 
+    <p>
+    You can independently enable any timeframe as a filter. These timeframes act as directional 
+    validators. For example, if EMA is enabled on H4 and H1, the price must be above EMA9 on both for 
+    a Buy signal to be valid.
+  </p>
+  <p>
+    The actual trade entry is triggered based on the selected Entry Timeframe (e.g., M15), 
+    and the Exit Timeframe determines when a trade is closed.
+  </p>
+    
     <div class="highlight">
-      <p><strong>Entry Timeframe (Dropdown):</strong> HTF / ITF / ETF</p>
-      <p><strong>Exit Timeframe (Dropdown):</strong> HTF / ITF / ETF</p>
+      <h3>✅ Entry and Exit Behavior:</h3>
+      <p>Entry Timeframe:HTF / ITF / ETF (Selectable)</p>
+      <p>Exit Timeframe: HTF / ITF / ETF (Selectable)</p>
     </div>
 
     <h3>✅ Entry Conditions:</h3>
