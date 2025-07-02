@@ -127,7 +127,23 @@
 
     <h3>✅ Optional Filter:</h3>
     <ul>
-      <li><strong>ADX Filter:</strong> If enabled, requires ADX > 25 for trend strength confirmation on the Entry Timeframe</li>
+      <li><strong>ADX Filter:</strong> If enabled, requires ADX > 25 for trend strength confirmation on any timeframe. If enabled, the EA verifies:
+  </p>
+  <ul>
+    <li><strong>ADX value &gt; 25</strong>, and</li>
+    <li><strong>+DI &gt; -DI</strong> (for Buy) or <strong>-DI &gt; +DI</strong> (for Sell)</li>
+  </ul>
+  <p>
+    Just like EMA, the ADX filter strengthens directional confirmation by filtering out weak or sideways markets. 
+    If ADX is enabled on HTF (e.g., H4), it works as a trend-strength filter on that timeframe.
+  </p>
+
+  <h3>🔁 Manual Trade Handling</h3>
+  <p>
+    If a trade is <strong>manually closed</strong>, the EA will <strong>not immediately re-open</strong> the trade under the same signal. 
+    It will wait for a <strong>new valid signal</strong> to avoid noise and false repetition.
+  </p>
+</li>
     </ul>
   </div>
 
