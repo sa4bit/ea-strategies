@@ -112,8 +112,12 @@ You can configure MACD values for each timeframe independently. A trade is trigg
 
     <h3>✅ Entry Conditions:</h3>
     <ul>
-      <li><strong>Buy:</strong> Price closes above EMA on selected Entry Timeframe and (if selected) price is already above EMA on H1 and H4. The trade closes when price closes below EMA on selected Exit Timeframe (e.g. M15).</li>
-      <li><strong>Sell:</strong> Price closes below EMA on selected Entry Timeframe and (if selected) price is already below EMA on H1 and H4. The trade closes when price closes above EMA on selected Exit Timeframe (e.g. M15).</li>
+      <li><strong>Buy:</strong> MACD Histogram is above the zero line on the selected Entry Timeframe (e.g., M15),
+and (if selected) MACD is also above zero on higher filters like H1 (ITF) and H4 (HTF).
+The trade closes when the MACD histogram drops below zero on the selected Exit Timeframe.</li>
+      <li><strong>Sell:</strong> MACD Histogram is below the zero line on the selected Entry Timeframe (e.g., M15),
+and (if selected) MACD is also below zero on higher filters like H1 (ITF) and H4 (HTF).
+The trade closes when the MACD histogram rises above zero on the selected Exit Timeframe.</li>
     </ul>
 
     <p>
@@ -128,7 +132,7 @@ You can configure MACD values for each timeframe independently. A trade is trigg
     <li><strong>+DI &gt; -DI</strong> (for Buy) or <strong>-DI &gt; +DI</strong> (for Sell)</li>
   </ul>
   <p>
-    Just like EMA, the ADX filter strengthens directional confirmation by filtering out weak or sideways markets. 
+    Just like MACD, the ADX filter strengthens directional confirmation by filtering out weak or sideways markets. 
     If ADX is enabled on HTF (e.g., H4), it works as a trend-strength filter on that timeframe.
   </p>
 
@@ -165,12 +169,12 @@ and exits when the Exit Timeframe condition reverses — provided all enabled fi
         <col style="width: 28%;">
         <col style="width: 72%;">
       </colgroup>
-  <tr><th colspan="2">EMA Filter HTF</th></tr>
-  <tr><td>Use EMA Filter on HTF</td><td>True</td></tr>
+  <tr><th colspan="2">MACD Filter HTF</th></tr>
+  <tr><td>Use MACD Filter on HTF</td><td>True</td></tr>
   <tr><td>HTF (Higher Timeframe)</td><td>4 Hours</td></tr>
-  <tr><td>EMA Period (HTF)</td><td>9</td></tr>
-  <tr><td>EMA Method (HTF)</td><td>Exponential</td></tr>
-  <tr><td>Applied Price (HTF)</td><td>Close price</td></tr>
+  <tr><td>Fast EMA (HTF)</td><td>12</td></tr>
+  <tr><td>Slow EMA (HTF)</td><td>26</td></tr>
+  <tr><td>MACD SMA (HTF)</td><td>9</td></tr>
   
   <tr><td>Use ADX Filter (HTF)</td><td>False</td></tr>
   <tr><td>ADX Period (HTF)</td><td>14</td></tr>
@@ -183,12 +187,12 @@ and exits when the Exit Timeframe condition reverses — provided all enabled fi
         <col style="width: 28%;">
         <col style="width: 72%;">
       </colgroup>
-  <tr><th colspan="2">EMA Filter ITF</th></tr>
-  <tr><td>Use EMA Filter on ITF</td><td>True</td></tr>
-  <tr><td>HTF (Intermediate Timeframe)</td><td>1 Hours</td></tr>
-  <tr><td>EMA Period (ITF)</td><td>9</td></tr>
-  <tr><td>EMA Method (ITF)</td><td>Exponential</td></tr>
-  <tr><td>Applied Price (ITF)</td><td>Close price</td></tr>
+  <tr><th colspan="2">MACD Filter ITF</th></tr>
+  <tr><td>Use MACD Filter on HTF</td><td>True</td></tr>
+  <tr><td>ITF (Intermediate Timeframe)</td><td>1 Hours</td></tr>
+  <tr><td>Fast EMA (ITF)</td><td>12</td></tr>
+  <tr><td>Slow EMA (ITF)</td><td>26</td></tr>
+  <tr><td>MACD SMA (ITF)</td><td>9</td></tr>
     
   <tr><td>Use ADX Filter (ITF)</td><td>False</td></tr>
   <tr><td>ADX Period (ITF)</td><td>14</td></tr>
@@ -200,12 +204,12 @@ and exits when the Exit Timeframe condition reverses — provided all enabled fi
         <col style="width: 28%;">
         <col style="width: 72%;">
       </colgroup>
-  <tr><th colspan="2">EMA Filter ETF</th></tr>
-  <tr><td>Use EMA Filter on ETF</td><td>True</td></tr>
+ <tr><th colspan="2">MACD Filter ETF</th></tr>
+  <tr><td>Use MACD Filter on HTF</td><td>True</td></tr>
   <tr><td>ETF (Entry Timeframe)</td><td>15 Minutes</td></tr>
-  <tr><td>EMA Period (ETF)</td><td>9</td></tr>
-  <tr><td>EMA Method (ETF)</td><td>Exponential</td></tr>
-  <tr><td>Applied Price (ETF)</td><td>Close price</td></tr>
+  <tr><td>Fast EMA (ETF)</td><td>12</td></tr>
+  <tr><td>Slow EMA (ETF)</td><td>26</td></tr>
+  <tr><td>MACD SMA (ETF)</td><td>9</td></tr>
 
   <tr><td>Use ADX Filter (ETF)</td><td>False</td></tr>
   <tr><td>ADX Period (ETF)</td><td>14</td></tr>
