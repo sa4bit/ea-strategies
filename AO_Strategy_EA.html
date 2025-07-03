@@ -1,17 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><title>AO Strategy EA</title>
-<style>body{font-family:Arial;background:#f9f9f9;color:#333;padding:20px}h1,h2{background:#f8d7da;padding:10px;border-left:5px solid #721c24}
-table{width:100%;border-collapse:collapse;margin:20px 0}th,td{border:1px solid #ddd;padding:10px}th{background:#f2f2f2}
-section{background:#fff;border:1px solid #ccc;border-radius:5px;padding:20px;margin-bottom:20px}</style></head>
-<body><h1>AO Strategy EA</h1>
+
+  <style>
+body {
+  font-family: Arial;
+  background: #f9f9f9;
+  color: #333;
+  padding: 20px;
+}
+
+h1, h2 {
+  background: #f8d7da;
+  padding: 10px;
+  border-left: 5px solid #721c24;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background: #fef8f9;
+}
+
+section {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Scoped Style B */
+.styleB h1 {
+  background-color: #005691;
+  color: #fff;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.styleB h2 {
+  margin-top: 30px;
+  color: #005691;
+}
+
+.styleB .section {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.03);
+  margin-bottom: 20px;
+}
+
+.styleB .highlight {
+  background-color: #e9f2fb;
+  border-left: 6px solid #007acc;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+.styleB tr.section-header td {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  font-size: 15px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.styleB .enum {
+  font-weight: bold;
+  color: #003f5c;
+}
+
+.styleB ul {
+  margin-top: 5px;
+}
+
+/* Scoped Style C */
+ .styleC-section {
+    background: #fff; /* light pink background */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+   margin-bottom: 20px;
+  }
+
+  .styleC-section h2 {
+    background: #f8d7da; /* pink header */
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .styleC-section h3 {
+    color: #333; /* dark rose red */
+    margin-top: 20px;
+  }
+
+  .styleC-section ul {
+    margin: 10px 0 20px 20px;
+  }
+
+  .styleC-highlight {
+    background-color: #fef7f9; /* soft rose highlight */
+    border-left: 5px solid #e42300; /* matching pink border */
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+</style>
+
+  
+</head>
+
+<body> 
+  <div class="styleB-section">
+   <h1>AO Strategy EA</h1>
+</div>
+  
+   <div class="styleC-section">
+
+   
+  <h2>📘 AO Strategy Description</h2>
+
+  <p>This EA uses the <strong>Awesome Oscillator (AO)</strong> across 3 selectable timeframes (HTF, ITF, ETF) to confirm momentum direction. Each timeframe can act as a filter independently — only when all selected timeframes agree, a trade signal is triggered.</p>
+
+  <p>The AO bar color is the key: <strong>green bars</strong> indicate bullish momentum, and <strong>red bars</strong> indicate bearish momentum. For example, if AO is green on H4 and H1, and also turns green on M15 (Entry Timeframe), a Buy trade is triggered. The Exit Timeframe determines which TF’s AO reversal triggers the trade closure.</p>
+
+  <div class="styleC-highlight">
+    <p><strong>Entry Timeframe (Dropdown):</strong> HTF / ITF / ETF</p>
+    <p><strong>Exit Timeframe (Dropdown):</strong> HTF / ITF / ETF</p>
+  </div>
+
+  <h3>✅ Entry Conditions:</h3>
+  <ul>
+    <li><strong>Buy:</strong> AO bar is green on Entry Timeframe and also on HTF/ITF if enabled</li>
+    <li><strong>Sell:</strong> AO bar is red on Entry Timeframe and also on HTF/ITF if enabled</li>
+    <li><strong>Exit:</strong> Based on the selected Exit Timeframe when AO bar color flips</li>
+  </ul>
+
+  <h3>✅ Optional Filters:</h3>
+  <ul>
+    <li><strong>ADX Filter:</strong> If enabled, confirms strength via ADX &gt; 25 and +DI &gt; -DI for Buy, -DI &gt; +DI for Sell</li>
+    <li><strong>MA Filter (EMA/SMA 200):</strong> Confirms price is above/below MA for directional bias</li>
+    <li>Both filters can be enabled separately or together and work on the selected Entry Timeframe</li>
+  </ul>
+
+  <h3>🔁 Manual Trade Handling:</h3>
+  <p>If you manually close a trade, the EA will not re-enter immediately. It will wait for a new qualifying signal to appear, preventing noisy re-entries.</p>
+      
+</div>
+
 <section><h2>Strategy Settings</h2>
-<table><tr><th>Parameter</th><th>Value</th></tr>
-<tr><td>Indicator</td><td>Awesome Oscillator (AO)</td></tr>
-<tr><td>Timeframes</td><td>HTF, ITF, ETF (Selectable)</td></tr>
-<tr><td>Entry Condition</td><td>AO bar color: Green for Buy / Red for Sell</td></tr>
-<tr><td>Optional Filters</td><td>ADX Level / +DI -DI / EMA200</td></tr></table></section>
+
+<!-- Single Table starts -->
+<table>
+   <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+   
+   <tr><th colspan="2">AO Filter HTF</th></tr>
+<tr><td>Use Awesome Oscillator (AO)</td><td>True</td></tr>
+<tr><td>HTF (Higher Timeframe)</td><td>4 Hours</td></tr>
+
+<tr><td>Use ADX Filter (HTF)</td><td>False</td></tr>
+<tr><td>ADX Period (HTF)</td><td>14</td></tr>
+<tr><td>ADX Level (HTF)</td><td>25</td></tr>
+
+<tr><td>Use MA Filter (HTF)</td><td>False</td></tr>
+<tr><td>MA Period (HTF)</td><td>200</td></tr>
+<tr><td>MA Method (HTF)</td><td>Simple</td></tr>
+<tr><td>Applied Price (HTF)</td><td>Close price</td></tr></table>
+<!-- Single Table ends -->
+
+<!-- Single Table starts -->
+<table>
+   <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+   
+   <tr><th colspan="2">AO Filter ITF</th></tr>
+<tr><td>Use Awesome Oscillator (AO)</td><td>True</td></tr>
+<tr><td>HTF (Higher Timeframe)</td><td>4 Hours</td></tr>
+
+<tr><td>Use ADX Filter (ITF)</td><td>False</td></tr>
+<tr><td>ADX Period (ITF)</td><td>14</td></tr>
+<tr><td>ADX Level (ITF)</td><td>25</td></tr>
+
+<tr><td>Use MA Filter (ITF)</td><td>False</td></tr>
+<tr><td>MA Period (ITF)</td><td>200</td></tr>
+<tr><td>MA Method (ITF)</td><td>Simple</td></tr>
+<tr><td>Applied Price (ITF)</td><td>Close price</td></tr></table>
+<!-- Single Table ends -->
+
+<!-- Single Table starts -->
+<table>
+   <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+   
+   <tr><th colspan="2">AO Filter ETF</th></tr>
+<tr><td>Use Awesome Oscillator (AO)</td><td>True</td></tr>
+<tr><td>ETF (Entry Timeframe)</td><td>4 Hours</td></tr>
+
+<tr><td>Use ADX Filter (ETF)</td><td>False</td></tr>
+<tr><td>ADX Period (ETF)</td><td>14</td></tr>
+<tr><td>ADX Level (ETF)</td><td>25</td></tr>
+
+<tr><td>Use MA Filter (ETF)</td><td>False</td></tr>
+<tr><td>MA Period (ETF)</td><td>200</td></tr>
+<tr><td>MA Method (ETF)</td><td>Simple</td></tr>
+<tr><td>Applied Price (ETF)</td><td>Close price</td></tr></table>
+<!-- Single Table ends -->
+</section>
+  
 <section><h2>🔧 Trade Execution & Management</h2>
 <ul><li><strong>Execution:</strong> Standard or Candle2Candle</li>
 <li><strong>SL/TP Methods:</strong> Fixed / ATR / Wick-Based</li>
-<li><strong>BE Mode:</strong> Manual or Auto</li></ul></section></body></html>
+<li><strong>BE Mode:</strong> Manual or Auto</li></ul>
+
+<!-- SPECIFICATION OF INPUT SETTINGS STARTS HERE -->
+   <div class="styleB"> 
+<table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  
+  <tr class="section-header"><td colspan="2">General Settings</td></tr>
+  <tr><td>Trade Direction</td><td>Both</td></tr>
+  <tr><td>Entry Timeframe</td><td>HTF / ITF / ETF (Selectable)</td></tr>
+  <tr><td>Exit Timeframe</td><td>HTF / ITF / ETF (Selectable)</td></tr>
+  <tr><td>Magic Number</td><td></td></tr>
+  <tr><td>Comment</td><td></td></tr>
+  <tr><td>Trade Execution Options</td><td>Standard / Candle2Candle Multiple Orders (Selectable)</td></tr>
+
+  <tr><td>SL-TP Mode</td><td>Fixed / ATR-Based / CandleWickRR (Selectable)</td></tr>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Lot Sizing</td></tr>
+  <tr><td>Use Risk Management</td><td>FALSE</td></tr>
+  <tr><td>Risk Percent</td><td>2.00</td></tr>
+  <tr><td>Fixed Lot</td><td>0.20</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Fixed SL-TP</td></tr>
+  <tr><td>Fixed SL</td><td>50.0</td></tr>
+  <tr><td>Fixed TP</td><td>100.0</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Fixed Break-Even</td></tr>
+  <tr><td>Use Fixed Break-Even</td><td>False</td></tr>
+  <tr><td>Break-Even (Pips)</td><td>50.0</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Fixed Trailing Stop</td></tr>
+  <tr><td>Use Fixed Trailing Stop</td><td>False</td></tr>
+  <tr><td>Fixed TSL Trigger (Pips)</td><td>10</td></tr>
+  <tr><td>Fixed TSL Distance (Pips)</td><td>7.0</td></tr>
+  <tr><td>Fixed TSL Step (Pips)</td><td>1.0</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">ATR-Based SL-TP</td></tr>
+  <tr><td>ATR Period</td><td>14</td></tr>
+  <tr><td>ATR Timeframe</td><td>D1</td></tr>
+  <tr><td>SL ATR Multiplier</td><td>1.5</td></tr>
+  <tr><td>TP ATR Multiplier</td><td>3.0</td></tr>
+  <tr><td>ATR Candle</td><td>1</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Dynamic ATR-Based TSL</td></tr>
+  <tr><td>Use ATR-Based Trailing Stop</td><td>False</td></tr>
+  <tr><td>ATR Period</td><td>14</td></tr>
+  <tr><td>ATR Timeframe</td><td>Current</td></tr>
+  <tr><td>ATR Multiplier</td><td>2.0</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Dynamic MA-Based TSL</td></tr>
+  <tr><td>Use MA-Based Trailing Stop</td><td>False</td></tr>
+  <tr><td>MA Period</td><td>9</td></tr>
+  <tr><td>MA Method</td><td>Exponential</td></tr>
+  <tr><td>MA Applied Price</td><td>Close price</td></tr>
+  <tr><td>MA Timeframe</td><td>Current</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Candle Wick SL-TP</td></tr>
+  <tr><td>Risk-Reward Ratio</td><td>1.5</td></tr>
+  <tr><td>SL Pip (Away from Candle) Wick</td><td>2.0</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">CandleWick Break-Even</td></tr>
+  <tr><td>Use Dynamic Break-Even</td><td>False</td></tr>
+  <tr><td>BE when next bar opens</td><td>False</td></tr>
+  <tr><td>BE at 1:1 Risk-Reward Ratio</td><td>False</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">CandleWick TSL</td></tr>
+  <tr><td>Use CandleWick Trailing</td><td>False</td></tr>
+  <tr><td>CandleWick Distance (Pip)</td><td>2.0</td></tr>
+  <tr><td>CandleWick Timeframe</td><td>Current</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Time Filter</td></tr>
+  <tr><td>Use Time Filter</td><td>False</td></tr>
+  <tr><td>Start Trading Time (HH:MM)</td><td>00.00</td></tr>
+  <tr><td>Stop Trading Time (HH:MM)</td><td>23:59</td></tr>
+  </div) 
+</table>
+<!-- SPECIFICATION OF INPUT SETTINGS ENDS HERE -->
+
+</section></body></html>
