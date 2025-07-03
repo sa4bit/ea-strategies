@@ -19,7 +19,146 @@ section{background:#fff;border:1px solid #ccc;border-radius:5px;padding:20px;mar
 <li><strong>Trailing Stops:</strong> Fixed / ATR / MA / Wick-Based</li></ul></section>
 
 <!-- Input Specification starts here -->
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
   
+  <tr class="section-header"><td colspan="2">General Settings</td></tr>
+  <tr><td>Trade Direction</td><td>Both</td></tr>
+  <tr><td>Entry Timeframe</td><td>HTF / ITF / ETF (Selectable)</td></tr>
+  <tr><td>Exit Timeframe</td><td>HTF / ITF / ETF (Selectable)</td></tr>
+  <tr><td>Magic Number</td><td></td></tr>
+  <tr><td>Comment</td><td></td></tr>
+  <tr><td>Trade Execution Options</td><td>Standard / Candle2Candle Multiple Orders (Selectable)</td></tr>
+
+  <tr><td>SL-TP Mode</td><td>Fixed / ATR-Based / CandleWickRR (Selectable)</td></tr>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Lot Sizing</td></tr>
+  <tr><td>Use Risk Management</td><td>FALSE</td></tr>
+  <tr><td>Risk Percent</td><td>2.00</td></tr>
+  <tr><td>Fixed Lot</td><td>0.20</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Fixed SL-TP</td></tr>
+  <tr><td>Fixed SL</td><td>50.0</td></tr>
+  <tr><td>Fixed TP</td><td>100.0</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Fixed Break-Even</td></tr>
+  <tr><td>Use Fixed Break-Even</td><td>False</td></tr>
+  <tr><td>Break-Even (Pips)</td><td>50.0</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Fixed Trailing Stop</td></tr>
+  <tr><td>Use Fixed Trailing Stop</td><td>False</td></tr>
+  <tr><td>Fixed TSL Trigger (Pips)</td><td>10</td></tr>
+  <tr><td>Fixed TSL Distance (Pips)</td><td>7.0</td></tr>
+  <tr><td>Fixed TSL Step (Pips)</td><td>1.0</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">ATR-Based SL-TP</td></tr>
+  <tr><td>ATR Period</td><td>14</td></tr>
+  <tr><td>ATR Timeframe</td><td>D1</td></tr>
+  <tr><td>SL ATR Multiplier</td><td>1.5</td></tr>
+  <tr><td>TP ATR Multiplier</td><td>3.0</td></tr>
+  <tr><td>ATR Candle</td><td>1</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Dynamic ATR-Based TSL</td></tr>
+  <tr><td>Use ATR-Based Trailing Stop</td><td>False</td></tr>
+  <tr><td>ATR Period</td><td>14</td></tr>
+  <tr><td>ATR Timeframe</td><td>Current</td></tr>
+  <tr><td>ATR Multiplier</td><td>2.0</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Dynamic MA-Based TSL</td></tr>
+  <tr><td>Use MA-Based Trailing Stop</td><td>False</td></tr>
+  <tr><td>MA Period</td><td>9</td></tr>
+  <tr><td>MA Method</td><td>Exponential</td></tr>
+  <tr><td>MA Applied Price</td><td>Close price</td></tr>
+  <tr><td>MA Timeframe</td><td>Current</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Candle Wick SL-TP</td></tr>
+  <tr><td>Risk-Reward Ratio</td><td>1.5</td></tr>
+  <tr><td>SL Pip (Away from Candle) Wick</td><td>2.0</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">CandleWick Break-Even</td></tr>
+  <tr><td>Use Dynamic Break-Even</td><td>False</td></tr>
+  <tr><td>BE when next bar opens</td><td>False</td></tr>
+  <tr><td>BE at 1:1 Risk-Reward Ratio</td><td>False</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">CandleWick TSL</td></tr>
+  <tr><td>Use CandleWick Trailing</td><td>False</td></tr>
+  <tr><td>CandleWick Distance (Pip)</td><td>2.0</td></tr>
+  <tr><td>CandleWick Timeframe</td><td>Current</td></tr>
+  </table>
+
+  <table>
+  <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+  <tr class="section-header"><td colspan="2">Time Filter</td></tr>
+  <tr><td>Use Time Filter</td><td>False</td></tr>
+  <tr><td>Start Trading Time (HH:MM)</td><td>00.00</td></tr>
+  <tr><td>Stop Trading Time (HH:MM)</td><td>23:59</td></tr>
+</table>
+  </section>
 <!-- Input Specification ends here -->
 
 
