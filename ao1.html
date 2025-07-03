@@ -80,14 +80,71 @@ margin-bottom:20px}
   }
 /* Scoped Style B */
 
+/* Style C starts here */
+  .styleC-section {
+    background: #e9ecef;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .styleC-section h2 {
+    background: #005f73;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .styleC-section h3 {
+    color: #0a9396;
+    margin-top: 20px;
+  }
+  .styleC-section ul {
+    margin: 10px 0 20px 20px;
+  }
+  .styleC-highlight {
+    background-color: #dbece9;
+    border-left: 5px solid #0a9396;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+/* Style C starts here */
+
 </style></head>
 
 <body><h1>AO Strategy EA</h1>
 
-   <section><h2>🔧 Trade Execution & Management</h2>
-<ul><li><strong>Execution:</strong> Standard or Candle2Candle</li>
-<li><strong>SL/TP Methods:</strong> Fixed / ATR / Wick-Based</li>
-<li><strong>BE Mode:</strong> Manual or Auto</li></ul></section>
+<div class="styleC-section">
+  <h2>📘 AO Strategy Description</h2>
+
+  <p>This EA uses the <strong>Awesome Oscillator (AO)</strong> across 3 selectable timeframes (HTF, ITF, ETF) to confirm momentum direction. Each timeframe can act as a filter independently — only when all selected timeframes agree, a trade signal is triggered.</p>
+
+  <p>The AO bar color is the key: <strong>green bars</strong> indicate bullish momentum, and <strong>red bars</strong> indicate bearish momentum. For example, if AO is green on H4 and H1, and also turns green on M15 (Entry Timeframe), a Buy trade is triggered. The Exit Timeframe determines which TF’s AO reversal triggers the trade closure.</p>
+
+  <div class="styleC-highlight">
+    <p><strong>Entry Timeframe (Dropdown):</strong> HTF / ITF / ETF</p>
+    <p><strong>Exit Timeframe (Dropdown):</strong> HTF / ITF / ETF</p>
+  </div>
+
+  <h3>✅ Entry Conditions:</h3>
+  <ul>
+    <li><strong>Buy:</strong> AO bar is green on Entry Timeframe and also on HTF/ITF if enabled</li>
+    <li><strong>Sell:</strong> AO bar is red on Entry Timeframe and also on HTF/ITF if enabled</li>
+    <li><strong>Exit:</strong> Based on the selected Exit Timeframe when AO bar color flips</li>
+  </ul>
+
+  <h3>✅ Optional Filters:</h3>
+  <ul>
+    <li><strong>ADX Filter:</strong> If enabled, confirms strength via ADX &gt; 25 and +DI &gt; -DI for Buy, -DI &gt; +DI for Sell</li>
+    <li><strong>MA Filter (EMA/SMA 200):</strong> Confirms price is above/below MA for directional bias</li>
+    <li>Both filters can be enabled separately or together and work on the selected Entry Timeframe</li>
+  </ul>
+
+  <h3>🔁 Manual Trade Handling:</h3>
+  <p>If you manually close a trade, the EA will not re-enter immediately. It will wait for a new qualifying signal to appear, preventing noisy re-entries.</p>
+</div>
 
 <section><h2>Strategy Settings</h2>
 
